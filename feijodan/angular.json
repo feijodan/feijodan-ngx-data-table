@@ -1,0 +1,42 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "62f06ef1-f673-4539-b054-cdac0fcc5f36"
+  },
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "feijodan-ngx-data-table": {
+      "projectType": "library",
+      "root": "projects/feijodan-ngx-data-table",
+      "sourceRoot": "projects/feijodan-ngx-data-table/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/feijodan-ngx-data-table/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/feijodan-ngx-data-table/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/feijodan-ngx-data-table/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/feijodan-ngx-data-table/src/test.ts",
+            "tsConfig": "projects/feijodan-ngx-data-table/tsconfig.spec.json",
+            "karmaConfig": "projects/feijodan-ngx-data-table/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "feijodan-ngx-data-table"
+}
