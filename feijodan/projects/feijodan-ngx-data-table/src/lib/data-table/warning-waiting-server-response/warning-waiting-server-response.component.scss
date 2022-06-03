@@ -1,0 +1,24 @@
+@use '../default-colors';
+
+div.warning-container {
+  display: flex;
+  flex-direction: row;
+  color: default-colors.$snack-bar-warning;
+
+  div.warning-message,
+  div.warning-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+  }
+
+  div.warning-icon {
+    margin-right: 10px;
+  }
+
+  div.warning-message {
+    span {
+      font-weight: bold;
+    }
+  }
+}
