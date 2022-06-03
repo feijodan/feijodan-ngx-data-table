@@ -3,3 +3,4 @@
  */
 
 export * from './lib/feijodan-ngx-data-table.module';
+export * from './lib/data-table/data-table.component';

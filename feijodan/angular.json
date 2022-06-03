@@ -10,7 +10,7 @@
       "projectType": "library",
       "root": "projects/feijodan-ngx-data-table",
       "sourceRoot": "projects/feijodan-ngx-data-table/src",
-      "prefix": "lib",
+      "prefix": "fdn",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
@@ -36,6 +36,11 @@
           }
         }
       }
+    }
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "style": "scss"
     }
   },
   "defaultProject": "feijodan-ngx-data-table"
