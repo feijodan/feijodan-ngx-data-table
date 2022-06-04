@@ -1,0 +1,41 @@
+@use '../default-colors';
+
+div.boolean-type {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.icon-success {
+  color: default-colors.$icon-success-hex;
+}
+
+.icon-error {
+  color: default-colors.$icon-error-hex;
+}
+
+.icon-button {
+  color: default-colors.$serventec-blue-hex;
+  min-width: 35px;
+  padding: 0 5px 0 5px;
+}
+
+.font-color-red {
+  color: default-colors.$table-font-color-red;
+}
+
+.font-color-green {
+  color: default-colors.$table-font-color-green;
+}
+
+.font-color-black {
+  color: default-colors.$table-font-color-black;
+}
+
+.font-color-gray {
+  color: default-colors.$table-font-color-gray;
+}
+
+::ng-deep .mat-tooltip {
+  font-size: 14px;
+}
