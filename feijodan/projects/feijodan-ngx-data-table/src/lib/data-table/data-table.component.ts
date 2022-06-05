@@ -9,19 +9,19 @@ import { Observable } from 'rxjs';
 export class DataTableComponent {
   /**
    * Message when the server to the user when it's fetching the data
-   * e.g. 'Fetching data in the server...' 'Waiting the server...'
+   * e.g. 'Fetching data in the server...', 'Waiting the server...'
    *
    */
   @Input() waitingServerResponseMessage!: Observable<string> | string;
   /**
    * Currency code
-   * e.g. 'BRL' 'CAD' 'USD'
+   * e.g. 'BRL', 'CAD', 'USD'
    *
    */
   @Input() currencyCode!: string;
   /**
    * Date format
-   * e.g. 'dd/MM/yyyy' 'yyyy-MM-dd'
+   * e.g. 'dd/MM/yyyy', 'yyyy-MM-dd'
    *
    */
   @Input() dateFormat!: string;

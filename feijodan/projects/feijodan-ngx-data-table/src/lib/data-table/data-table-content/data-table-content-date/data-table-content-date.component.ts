@@ -7,10 +7,4 @@ import { DataTableContentBaseComponent } from '../data-table-content-base/data-t
   styleUrls: ['../data-table-content-common.scss']
 })
 export class DataTableContentDateComponent extends DataTableContentBaseComponent {
-  /**
-   * Date format
-   * e.g. 'dd/MM/yyyy' 'yyyy-MM-dd'
-   *
-   */
-  @Input() dateFormat!: string;
 }

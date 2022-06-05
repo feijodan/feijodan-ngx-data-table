@@ -7,10 +7,4 @@ import { DataTableContentBaseComponent } from '../data-table-content-base/data-t
   styleUrls: ['../data-table-content-common.scss']
 })
 export class DataTableContentCurrencyComponent extends DataTableContentBaseComponent {
-  /**
-   * Currency code
-   * e.g. 'BRL' 'CAD' 'USD'
-   *
-   */
-  @Input() currencyCode!: string;
 }
