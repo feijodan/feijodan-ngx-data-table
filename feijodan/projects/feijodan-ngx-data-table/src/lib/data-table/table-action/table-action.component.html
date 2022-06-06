@@ -1,0 +1,51 @@
+<div class="header-container">
+  <div class="action-container">
+    <div class="action-button">
+      <button mat-button (click)="$event.stopPropagation()" [matMenuTriggerFor]="columnMenu"
+              style="padding: 0">
+        <mat-icon svgIcon="settings"></mat-icon>
+        <mat-icon svgIcon="expand_more"></mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
+
+<mat-menu #columnMenu="matMenu" [overlapTrigger]="false">
+  <div [matTooltip]="columnsToAdd.length < 1
+  ? allColumnsAlreadyInTheTableTranslatedText : ''" [matTooltipPosition]="'right'">
+    <button mat-menu-item [matMenuTriggerFor]="columnsTemplate" disableRipple="true"
+            [disabled]="columnsToAdd.length < 1">
+    <span class="space">
+      <mat-icon svgIcon="view_list"></mat-icon>
+    </span>
+      <span>{{ addColumnTranslatedText }}</span>
+    </button>
+  </div>
+  <button (click)="onClearAll()" mat-menu-item disableRipple="true">
+    <span class="space">
+      <mat-icon svgIcon="cancel"></mat-icon>
+    </span>
+    <span class="vertical">{{ cleanAllColumnFiltersTranslatedText }}</span>
+  </button>
+  <button mat-menu-item disableRipple="true">
+    <mat-checkbox style="padding-left: 4px" [(ngModel)]="autoFilterFocusValue" color="primary"
+                  (change)="onFilterFocusChange($event)"
+                  (click)="$event.stopPropagation()">Auto focar no filtro
+    </mat-checkbox>
+  </button>
+</mat-menu>
+
+<mat-menu #columnsTemplate="matMenu">
+  <section class="list">
+    <ng-container *ngFor="let column of columnsToAdd">
+      <button mat-menu-item disableRipple="true" (click)="onAddColumn(column.columnId)">
+        <span class="space">
+          <mat-icon svgIcon="view_column"></mat-icon>
+        </span>
+        <span>{{ column.columnLabel }}</span>
+      </button>
+    </ng-container>
+  </section>
+</mat-menu>
+
+

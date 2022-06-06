@@ -20,6 +20,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { DataTableContentTextComponent } from './data-table-content/data-table-content-text/data-table-content-text.component';
 import { DataTableContentViewComponent } from './data-table-content/data-table-content-view/data-table-content-view.component';
+import { TableActionComponent } from './table-action/table-action.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FormsModule } from '@angular/forms';
 
 const pipes = [
   EmptyDatePipe,
@@ -39,12 +43,16 @@ const pipes = [
     DataTableContentEditComponent,
     DataTableContentTextComponent,
     DataTableContentViewComponent,
+    TableActionComponent,
   ],
   imports: [
     MatIconModule,
     CommonModule,
     MatButtonModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatMenuModule,
+    MatCheckboxModule,
+    FormsModule
   ],
   exports: [
     DataTableComponent
