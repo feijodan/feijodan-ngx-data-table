@@ -18,6 +18,8 @@ import { EmptyDatePipe } from './data-table-content/data-table-content-date/pipe
 import { DataTableContentEditComponent } from './data-table-content/data-table-content-edit/data-table-content-edit.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { DataTableContentTextComponent } from './data-table-content/data-table-content-text/data-table-content-text.component';
+import { DataTableContentViewComponent } from './data-table-content/data-table-content-view/data-table-content-view.component';
 
 const pipes = [
   EmptyDatePipe,
@@ -35,6 +37,8 @@ const pipes = [
     DataTableContentCurrencyComponent,
     DataTableContentDateComponent,
     DataTableContentEditComponent,
+    DataTableContentTextComponent,
+    DataTableContentViewComponent,
   ],
   imports: [
     MatIconModule,
