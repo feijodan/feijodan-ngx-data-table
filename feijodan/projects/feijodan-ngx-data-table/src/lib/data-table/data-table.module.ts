@@ -24,6 +24,8 @@ import { TableActionComponent } from './table-action/table-action.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
+import { ColumnActionComponent } from './column-action/column-action.component';
+import { ColumnActionTypeBaseComponent } from './column-action/column-action-type/column-action-type-base/column-action-type-base.component';
 
 const pipes = [
   EmptyDatePipe,
@@ -44,6 +46,7 @@ const pipes = [
     DataTableContentTextComponent,
     DataTableContentViewComponent,
     TableActionComponent,
+    ColumnActionComponent,
   ],
   imports: [
     MatIconModule,

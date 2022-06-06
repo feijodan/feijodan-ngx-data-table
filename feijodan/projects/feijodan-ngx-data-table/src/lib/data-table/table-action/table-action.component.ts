@@ -1,10 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { MatCheckboxChange } from '@angular/material/checkbox';
-
-export interface ColumnInfo {
-  columnId: string;
-  columnLabel: string;
-}
+import { ColumnBaseInfo } from '../data-table-models';
 
 @Component({
   selector: 'fdn-table-action',
@@ -12,8 +8,8 @@ export interface ColumnInfo {
   styleUrls: ['../action-common.scss']
 })
 export class TableActionComponent implements OnChanges {
-  @Input() displayedColumns!: ColumnInfo[];
-  @Input() allProfileColumns!: ColumnInfo[];
+  @Input() displayedColumns!: ColumnBaseInfo[];
+  @Input() allProfileColumns!: ColumnBaseInfo[];
   @Input() autoFilterFocus!: boolean;
   @Output() clearAll: EventEmitter<boolean> = new EventEmitter();
   @Output() addColumn: EventEmitter<string> = new EventEmitter();
@@ -35,7 +31,7 @@ export class TableActionComponent implements OnChanges {
   @Input() cleanAllColumnFiltersTranslatedText!: string;
 
 
-  columnsToAdd: ColumnInfo[] = [];
+  columnsToAdd: ColumnBaseInfo[] = [];
   autoFilterFocusValue: boolean = false;
 
   ngOnChanges(changes: SimpleChanges): void {

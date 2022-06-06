@@ -38,11 +38,11 @@
 <mat-menu #columnsTemplate="matMenu">
   <section class="list">
     <ng-container *ngFor="let column of columnsToAdd">
-      <button mat-menu-item disableRipple="true" (click)="onAddColumn(column.columnId)">
+      <button mat-menu-item disableRipple="true" (click)="onAddColumn(column.id)">
         <span class="space">
           <mat-icon svgIcon="view_column"></mat-icon>
         </span>
-        <span>{{ column.columnLabel }}</span>
+        <span>{{ column.label }}</span>
       </button>
     </ng-container>
   </section>
