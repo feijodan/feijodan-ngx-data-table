@@ -15,6 +15,9 @@ import {
 import { CommonModule } from '@angular/common';
 import { DataTableContentDateComponent } from './data-table-content/data-table-content-date/data-table-content-date.component';
 import { EmptyDatePipe } from './data-table-content/data-table-content-date/pipe/empty-date.pipe';
+import { DataTableContentEditComponent } from './data-table-content/data-table-content-edit/data-table-content-edit.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 const pipes = [
   EmptyDatePipe,
@@ -31,10 +34,13 @@ const pipes = [
     DataTableContentBooleanComponent,
     DataTableContentCurrencyComponent,
     DataTableContentDateComponent,
+    DataTableContentEditComponent,
   ],
   imports: [
     MatIconModule,
-    CommonModule
+    CommonModule,
+    MatButtonModule,
+    MatTooltipModule
   ],
   exports: [
     DataTableComponent
