@@ -19,17 +19,17 @@ export class TableActionComponent implements OnChanges {
   @Output() addColumn: EventEmitter<string> = new EventEmitter();
   @Output() autoFilterFocusEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
   /**
-   * Text translated of 'All Columns already in the table'
+   * Translated text of 'All Columns already in the table'
    *
    */
   @Input() allColumnsAlreadyInTheTableTranslatedText!: string;
   /**
-   * Text translated of 'Add Column'
+   * Translated text of 'Add Column'
    *
    */
   @Input() addColumnTranslatedText!: string;
   /**
-   * Text translated of 'Clean all column filters'
+   * Translated text of 'Clean all column filters'
    *
    */
   @Input() cleanAllColumnFiltersTranslatedText!: string;

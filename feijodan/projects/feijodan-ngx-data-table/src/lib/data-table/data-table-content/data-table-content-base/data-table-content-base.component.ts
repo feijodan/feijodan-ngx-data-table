@@ -22,23 +22,23 @@ export abstract class DataTableContentBaseComponent {
    */
   goToUrl!: (path: string, isNewTab: boolean) => void;
   /**
-   * 'Edit in the same tab' translated text
+   * Translated text of 'Edit in the same tab'
    *
    */
-  editInTheSameTabText!: string;
+  editInTheSameTabTranslatedText!: string;
   /**
-   * 'Edit in other tab' translated text
+   * Translated text of 'Edit in other tab'
    *
    */
-  editInOtherTabText!: string;
+  editInOtherTabTranslatedText!: string;
   /**
-   * 'View in the same tab' translated text
+   * Translated text of 'View in the same tab'
    *
    */
-  viewInTheSameTabText!: string;
+  viewInTheSameTabTranslatedText!: string;
   /**
-   * 'View in other tab' translated text
+   * Translated text of 'View in other tab'
    *
    */
-  viewInOtherTabText!: string;
+  viewInOtherTabTranslatedText!: string;
 }

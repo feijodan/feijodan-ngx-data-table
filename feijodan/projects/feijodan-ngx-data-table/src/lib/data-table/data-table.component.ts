@@ -31,23 +31,38 @@ export class DataTableComponent {
    */
   @Input() goToUrl!: (path: string, isNewTab: boolean) => void;
   /**
-   * 'Edit in the same tab' translated text
+   * Translated text of 'Edit in the same tab'
    *
    */
-  @Input() editInTheSameTabText!: string;
+  @Input() editInTheSameTabTranslatedText!: string;
   /**
-   * 'Edit in other tab' translated text
+   * Translated text of 'Edit in other tab'
    *
    */
-  @Input() editInOtherTabText!: string;
+  @Input() editInOtherTabTranslatedText!: string;
   /**
-   * 'View in the same tab' translated text
+   * Translated text of 'View in the same tab'
    *
    */
-  @Input() viewInTheSameTabText!: string;
+  @Input() viewInTheSameTabTranslatedText!: string;
   /**
-   * 'View in other tab' translated text
+   * Translated text of 'View in other tab'
    *
    */
-  @Input() viewInOtherTabText!: string;
+  @Input() viewInOtherTabTranslatedText!: string;
+  /**
+   * Translated text of 'All Columns already in the table'
+   *
+   */
+  @Input() allColumnsAlreadyInTheTableTranslatedText!: string;
+  /**
+   * Translated Text of 'Add Column'
+   *
+   */
+  @Input() addColumnTranslatedText!: string;
+  /**
+   * Translated text of 'Clean all column filters'
+   *
+   */
+  @Input() cleanAllColumnFiltersTranslatedText!: string;
 }
