@@ -26,6 +26,12 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
 import { ColumnActionComponent } from './column-action/column-action.component';
 import { ColumnActionTypeBaseComponent } from './column-action/column-action-type/column-action-type-base/column-action-type-base.component';
+import { ColumnActionTypeDateComponent } from './column-action/column-action-type/column-action-type-date/column-action-type-date.component';
+import { ColumnActionTypeLayoutComponent } from './column-action/column-action-type/column-action-type-layout/column-action-type-layout.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatDividerModule } from '@angular/material/divider';
+import { ColumnActionTypeFreeTextComponent } from './column-action/column-action-type/column-action-type-free-text/column-action-type-free-text.component';
 
 const pipes = [
   EmptyDatePipe,
@@ -47,6 +53,9 @@ const pipes = [
     DataTableContentViewComponent,
     TableActionComponent,
     ColumnActionComponent,
+    ColumnActionTypeDateComponent,
+    ColumnActionTypeLayoutComponent,
+    ColumnActionTypeFreeTextComponent,
   ],
   imports: [
     MatIconModule,
@@ -55,7 +64,10 @@ const pipes = [
     MatTooltipModule,
     MatMenuModule,
     MatCheckboxModule,
-    FormsModule
+    FormsModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatDividerModule
   ],
   exports: [
     DataTableComponent

@@ -1,0 +1,45 @@
+<ng-template #typeDateTemplate>
+  <section>
+    <mat-form-field class="date-field" (keyup)="$event.stopPropagation()" (keydown)="$event.stopPropagation()">
+      <mat-label>{{ startDateTranslatedText }}</mat-label>
+      <input #startDateInput matInput [matDatepicker]="picker1" [(ngModel)]="startDate" (click)="$event.stopPropagation()"
+             (dateChange)="onStartDateChange($event)" [disabled]="dateIntervalFilterDisabled">
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+      <button mat-button *ngIf="startDateInput.value" matSuffix mat-icon-button
+              (click)="$event.stopPropagation();clearStartDateInput()">
+        <mat-icon svgIcon="close"></mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-form-field class="date-field" (keyup)="$event.stopPropagation()" (keydown)="$event.stopPropagation()">
+      <mat-label>{{ endDateTranslatedText }}</mat-label>
+      <input #endDateInput matInput [matDatepicker]="picker2" [(ngModel)]="endDate" (click)="$event.stopPropagation()"
+             (dateChange)="onEndDateChange($event)" [disabled]="dateIntervalFilterDisabled">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+      <button mat-button *ngIf="endDateInput.value" matSuffix mat-icon-button
+              (click)="$event.stopPropagation();clearEndDateInput()">
+        <mat-icon svgIcon="close"></mat-icon>
+      </button>
+    </mat-form-field>
+  </section>
+  <mat-divider></mat-divider>
+  <section class="list">
+    <mat-checkbox (click)="$event.stopPropagation();" [ngModel]="emptyDatesChecked"
+                  (change)="onNullDatesChange($event)" color="primary"
+                  disableRipple="true">
+      {{ emptyDatesTranslatedText }}
+    </mat-checkbox>
+  </section>
+</ng-template>
+
+<fdn-column-action-type-layout
+  [contentTemplate]="typeDateTemplate"
+  columnLabel="{{columnLabel}}"
+  [filterType]="filterType"
+  valuesToDisplay="{{valuesToDisplay}}"
+  [minWidth]="minWidth"
+  [autoFilterFocus]="autoFilterFocus"
+  (filterMenuOpened)="onFilterMenuOpen()"
+  (removeColumnEmitter)="removeColumn()"
+  (moveColumnEmitter)="moveColumn($event)"></fdn-column-action-type-layout>

@@ -1,5 +1,3 @@
-import { Input } from '@angular/core';
-
 export abstract class DataTableContentBaseComponent {
   contentType!: string;
   content!: string;

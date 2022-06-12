@@ -15,6 +15,43 @@ export class DataTableContentComponent implements OnInit {
   @Input() contentType!: string;
   @Input() content!: string;
   @Input() fontColor!: string;
+  /**
+   * Date format
+   * e.g. 'dd/MM/yyyy', 'yyyy-MM-dd'
+   *
+   */
+  @Input() dateFormat!: string;
+  /**
+   * Currency code
+   * e.g. 'BRL', 'CAD', 'USD'
+   *
+   */
+  @Input() currencyCode!: string;
+  /**
+   * Logic to navigate of the application
+   *
+   */
+  @Input() goToUrl!: (path: string, isNewTab: boolean) => void;
+  /**
+   * Translated text of 'Edit in the same tab'
+   *
+   */
+  @Input() editInTheSameTabTranslatedText: string = 'Edit in the same tab';
+  /**
+   * Translated text of 'Edit in other tab'
+   *
+   */
+  @Input() editInOtherTabTranslatedText: string = 'Edit in other tab';
+  /**
+   * Translated text of 'View in the same tab'
+   *
+   */
+  @Input() viewInTheSameTabTranslatedText: string = 'View in the same tab';
+  /**
+   * Translated text of 'View in other tab'
+   *
+   */
+  @Input() viewInOtherTabTranslatedText: string = 'View in other tab';
 
   @ViewChild('container', {read: ViewContainerRef, static: true})
 
@@ -41,6 +78,13 @@ export class DataTableContentComponent implements OnInit {
     componentRefInstance.contentType = this.contentType;
     componentRefInstance.content = this.content;
     componentRefInstance.fontColor = this.fontColor;
+    componentRefInstance.dateFormat = this.dateFormat;
+    componentRefInstance.currencyCode = this.currencyCode;
+    componentRefInstance.goToUrl = this.goToUrl;
+    componentRefInstance.editInTheSameTabTranslatedText = this.editInTheSameTabTranslatedText;
+    componentRefInstance.editInOtherTabTranslatedText = this.editInOtherTabTranslatedText;
+    componentRefInstance.viewInTheSameTabTranslatedText = this.viewInTheSameTabTranslatedText;
+    componentRefInstance.viewInOtherTabTranslatedText = this.viewInOtherTabTranslatedText;
   }
 
   private getComponentForType(type: string): any {

@@ -1,0 +1,67 @@
+<div class="header-container">
+  <div class="header-label" [ngStyle]="{'min-width.px': minWidth}">
+    {{ columnLabel }}
+  </div>
+  <ng-container *ngIf="filterType !== 'no-filter'">
+    <div>
+      <button mat-button (click)="$event.stopPropagation()" [matMenuTriggerFor]="columnMenu"
+              (menuOpened)="onMenuOpen()" class="values-to-display-btn">
+        <span class="values-to-display-container">
+          <span class="values-to-display-wrapper"
+                [ngStyle]="{'min-width.px': minWidth, 'border': valuesToDisplay ? '1px solid red' : '1px solid #3f51b5'}">
+            <span class="values-to-display">
+              {{ valuesToDisplay }}
+            </span>
+          </span>
+          <mat-icon svgIcon="expand_more"></mat-icon>
+        </span>
+      </button>
+    </div>
+  </ng-container>
+</div>
+
+<mat-menu #columnMenu="matMenu" [overlapTrigger]="false">
+  <button mat-menu-item [matMenuTriggerFor]="filterTemplate"
+          #filterTemplateTrigger="matMenuTrigger" (menuOpened)="onFilterMenuOpen()" disableRipple="true">
+    <span class="space">
+      <mat-icon svgIcon="filter_list"></mat-icon>
+    </span>
+    <span>{{ filterTranslatedText }}</span>
+  </button>
+
+  <button mat-menu-item [matMenuTriggerFor]="moveColumnTemplate" disableRipple="true">
+    <span class="space">
+      <mat-icon svgIcon="reorder"></mat-icon>
+    </span>
+    <span>{{ moveColumnTranslatedText }}</span>
+  </button>
+
+  <button (click)="removeColumn()" mat-menu-item disableRipple="true">
+    <span class="space">
+      <mat-icon svgIcon="delete"></mat-icon>
+    </span>
+    <span class="vertical">{{ removeColumnTranslatedText }}</span>
+  </button>
+</mat-menu>
+
+<mat-menu #filterTemplate="matMenu">
+
+  <ng-container *ngTemplateOutlet="contentTemplate"></ng-container>
+
+</mat-menu>
+
+<mat-menu #moveColumnTemplate="matMenu">
+  <button (click)="moveColumn('forward')" mat-menu-item disableRipple="true">
+    <span class="space">
+      <mat-icon svgIcon="arrow_forward_ios"></mat-icon>
+    </span>
+    <span class="vertical">{{ moveForwardTranslatedText }}</span>
+  </button>
+  <button (click)="moveColumn('back')" mat-menu-item disableRipple="true">
+    <span class="space">
+      <mat-icon svgIcon="arrow_back_ios"></mat-icon>
+    </span>
+    <span class="vertical">{{ moveBackwardTranslatedText }}</span>
+  </button>
+</mat-menu>
+

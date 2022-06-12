@@ -1,0 +1,28 @@
+<ng-template #freeTextTemplate>
+  <ng-container *ngIf="filterType === 'freeText'">
+    <div (click)="$event.stopPropagation()" mat-menu-item disableRipple="true">
+    <span class="space">
+      <mat-icon svgIcon="filter_list"></mat-icon>
+    </span>
+      <mat-form-field>
+        <input #freeTextInput matInput type="text" [ngModel]="freeText"
+               placeholder="{{ filterByTextTranslatedText }}" autocomplete="off">
+        <button mat-button *ngIf="freeTextInput.value" matSuffix mat-icon-button
+                (click)="clearFreeTextInput()">
+          <mat-icon svgIcon="close"></mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+  </ng-container>
+</ng-template>
+
+<fdn-column-action-type-layout
+  [contentTemplate]="freeTextTemplate"
+  columnLabel="{{columnLabel}}"
+  [filterType]="filterType"
+  valuesToDisplay="{{valuesToDisplay}}"
+  [minWidth]="minWidth"
+  [autoFilterFocus]="autoFilterFocus"
+  (filterMenuOpened)="onFilterMenuOpen()"
+  (removeColumnEmitter)="removeColumn()"
+  (moveColumnEmitter)="moveColumn($event)"></fdn-column-action-type-layout>

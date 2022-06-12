@@ -20,16 +20,19 @@ export abstract class ColumnActionTypeBaseComponent {
   /**
    * Use filerValues when you want to pass straight the values instead
    * of take it form the data.
-   * e.g. ["Bloqueio", "Segurança", "Controle"]
+   * e.g. ['Block', 'Security', 'Control']
    */
   filterValues!: string[];
   /**
    * The column to refer to the database to compose the query
    */
   columnKey!: string;
-  // moduleKey: StcModuleKey;
   filterType!: FilterType;
   clearAll$!: Subject<void>;
+  /**
+   * Label of the column. Should be already translated.
+   *
+   */
   columnLabel!: string;
   minWidth!: number;
   autoFilterFocus!: boolean;
