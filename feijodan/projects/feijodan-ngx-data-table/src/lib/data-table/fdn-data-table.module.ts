@@ -9,9 +9,7 @@ import { DataTableContentBooleanComponent } from './data-table-content/data-tabl
 import { BooleanClassPipe } from './data-table-content/data-table-content-boolean/pipe/boolean-class.pipe';
 import { BooleanIconPipe } from './data-table-content/data-table-content-boolean/pipe/boolean-icon.pipe';
 import { DataTableContentCurrencyComponent } from './data-table-content/data-table-content-currency/data-table-content-currency.component';
-import {
-  EmptyCurrencyPipe
-} from './data-table-content/data-table-content-currency/pipe/empty-currency.pipe';
+import { EmptyCurrencyPipe } from './data-table-content/data-table-content-currency/pipe/empty-currency.pipe';
 import { CommonModule } from '@angular/common';
 import { DataTableContentDateComponent } from './data-table-content/data-table-content-date/data-table-content-date.component';
 import { EmptyDatePipe } from './data-table-content/data-table-content-date/pipe/empty-date.pipe';
@@ -25,7 +23,6 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
 import { ColumnActionComponent } from './column-action/column-action.component';
-import { ColumnActionTypeBaseComponent } from './column-action/column-action-type/column-action-type-base/column-action-type-base.component';
 import { ColumnActionTypeDateComponent } from './column-action/column-action-type/column-action-type-date/column-action-type-date.component';
 import { ColumnActionTypeLayoutComponent } from './column-action/column-action-type/column-action-type-layout/column-action-type-layout.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -73,5 +70,5 @@ const pipes = [
     DataTableComponent
   ]
 })
-export class DataTableModule {
+export class FdnDataTableModule {
 }

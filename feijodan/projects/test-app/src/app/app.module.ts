@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FeijodanNgxDataTableModule } from '@feijodan/ngx-data-table';
+import { FdnDataTableModule } from '../../../feijodan-ngx-data-table/src/lib/data-table/fdn-data-table.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +11,7 @@ import { FeijodanNgxDataTableModule } from '@feijodan/ngx-data-table';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FeijodanNgxDataTableModule,
+    FdnDataTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
