@@ -29,6 +29,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDividerModule } from '@angular/material/divider';
 import { ColumnActionTypeFreeTextComponent } from './column-action/column-action-type/column-action-type-free-text/column-action-type-free-text.component';
+import { ColumnActionTypeListComponent } from './column-action/column-action-type/column-action-type-list/column-action-type-list.component';
 
 const pipes = [
   EmptyDatePipe,
@@ -53,6 +54,7 @@ const pipes = [
     ColumnActionTypeDateComponent,
     ColumnActionTypeLayoutComponent,
     ColumnActionTypeFreeTextComponent,
+    ColumnActionTypeListComponent,
   ],
   imports: [
     MatIconModule,

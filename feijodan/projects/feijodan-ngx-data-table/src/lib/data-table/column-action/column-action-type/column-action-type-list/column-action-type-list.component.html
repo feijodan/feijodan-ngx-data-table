@@ -1,0 +1,35 @@
+<ng-template #typeListTemplate>
+  <button (click)="onUnselectAll(); $event.stopPropagation()" mat-menu-item disableRipple="true">
+      <span class="space">
+        <mat-icon svgIcon="cancel"></mat-icon>
+      </span>
+    <span class="vertical">
+        {{ clearAllTranslatedText }}
+      </span>
+  </button>
+  <button (click)="onSelectAll(); $event.stopPropagation()" mat-menu-item disableRipple="true">
+      <span class="space">
+        <mat-icon svgIcon="done_all"></mat-icon>
+      </span>
+    <span class="vertical">
+        {{ selectAllTranslatedText }}
+      </span>
+  </button>
+
+  <section class="list">
+    <ng-container *ngFor="let item of filterValuesView">
+      <mat-checkbox (change)="onCheckbox($event, item);" (click)="$event.stopPropagation()" color="primary"
+                    disableRipple="true" [checked]="item.selected">{{ item.value }}</mat-checkbox>
+    </ng-container>
+  </section>
+</ng-template>
+
+<fdn-column-action-type-layout
+  [contentTemplate]="typeListTemplate"
+  columnLabel="{{columnLabel}}"
+  [filterType]="filterType"
+  valuesToDisplay="{{valuesToDisplay}}"
+  [minWidth]="minWidth"
+  [autoFilterFocus]="autoFilterFocus"
+  (removeColumnEmitter)="removeColumn()"
+  (moveColumnEmitter)="moveColumn($event)"></fdn-column-action-type-layout>
