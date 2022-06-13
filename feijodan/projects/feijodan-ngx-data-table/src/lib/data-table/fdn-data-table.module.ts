@@ -30,6 +30,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDividerModule } from '@angular/material/divider';
 import { ColumnActionTypeFreeTextComponent } from './column-action/column-action-type/column-action-type-free-text/column-action-type-free-text.component';
 import { ColumnActionTypeListComponent } from './column-action/column-action-type/column-action-type-list/column-action-type-list.component';
+import { ColumnActionTypeNumericComponent } from './column-action/column-action-type/column-action-type-numeric/column-action-type-numeric.component';
 
 const pipes = [
   EmptyDatePipe,
@@ -55,6 +56,7 @@ const pipes = [
     ColumnActionTypeLayoutComponent,
     ColumnActionTypeFreeTextComponent,
     ColumnActionTypeListComponent,
+    ColumnActionTypeNumericComponent,
   ],
   imports: [
     MatIconModule,

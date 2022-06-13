@@ -1,0 +1,49 @@
+<ng-template #typeNumericTemplate>
+  <section>
+    <mat-form-field class="date-field" (keyup)="$event.stopPropagation()" (keydown)="$event.stopPropagation()">
+      <mat-label>{{ minimumValueTranslatedText }}</mat-label>
+      <input #minimumNumericInput matInput (click)="$event.stopPropagation()" [ngModel]="minimumNumeric"
+             (change)="onMinimumValueChange($event)">
+      <button mat-button *ngIf="!isMinimumNumericValueValid" matSuffix mat-icon-button
+              (click)="$event.stopPropagation()" [matTooltip]="onlyNumbersNoDotsOrCommasTranslatedText">
+        <mat-icon svgIcon="error" style="color:red"></mat-icon>
+      </button>
+      <button mat-button *ngIf="minimumNumericInput.value" matSuffix mat-icon-button
+              (click)="$event.stopPropagation();clearMinimumNumericInput()">
+        <mat-icon svgIcon="close"></mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-form-field class="date-field" (keyup)="$event.stopPropagation()" (keydown)="$event.stopPropagation()">
+      <mat-label>{{ maximumValueTranslatedText }}</mat-label>
+      <input #maximumNumericInput matInput (click)="$event.stopPropagation()" [ngModel]="maximumNumeric"
+             (change)="onMaximumValueChange($event)">
+      <button mat-button *ngIf="!isMaximumNumericValueValid" matSuffix mat-icon-button
+              (click)="$event.stopPropagation()" [matTooltip]="onlyNumbersNoDotsOrCommasTranslatedText">
+        <mat-icon svgIcon="error" style="color:red"></mat-icon>
+      </button>
+      <button mat-button *ngIf="maximumNumericInput.value" matSuffix mat-icon-button
+              (click)="$event.stopPropagation();clearMaximumNumericInput()">
+        <mat-icon svgIcon="close"></mat-icon>
+      </button>
+    </mat-form-field>
+  </section>
+  <mat-divider></mat-divider>
+  <section class="list">
+    <mat-checkbox (click)="$event.stopPropagation();" [ngModel]="emptyNumericValuesChecked"
+                  (change)="onNullNumericChange($event)" color="primary"
+                  disableRipple="true">
+      {{ emptyValuesTranslatedText }}
+    </mat-checkbox>
+  </section>
+</ng-template>
+
+<fdn-column-action-type-layout
+  [contentTemplate]="typeNumericTemplate"
+  columnLabel="{{columnLabel}}"
+  [filterType]="filterType"
+  valuesToDisplay="{{valuesToDisplay}}"
+  [minWidth]="minWidth"
+  [autoFilterFocus]="autoFilterFocus"
+  (filterMenuOpened)="onFilterMenuOpen()"
+  (removeColumnEmitter)="removeColumn()"
+  (moveColumnEmitter)="moveColumn($event)"></fdn-column-action-type-layout>

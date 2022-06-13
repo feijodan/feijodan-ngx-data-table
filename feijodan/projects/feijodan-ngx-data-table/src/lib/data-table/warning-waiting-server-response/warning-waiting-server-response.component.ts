@@ -11,5 +11,5 @@ export class WarningWaitingServerResponseComponent {
    * Message when the server to the user when it's fetching the data
    *
    */
-  @Input() waitingServerResponseMessage!: Observable<string> | string;
+  @Input() waitingServerResponseMessage: string = 'Waiting server response...';
 }
