@@ -51,6 +51,13 @@ export interface DataTableColumns {
   displayedColumns: string[];
 }
 
+export interface IPaginationData {
+  totalElements: number;
+  totalPages: number;
+  currentPage: number;
+  pageSize: number;
+}
+
 export type MoveDirectionType = 'forward' | 'back';
 
 export type FilterType = 'no-filter' | 'list' | 'freeText' | 'date' | 'numeric';

@@ -1,1 +1,75 @@
-<p>data-table works!</p>
+<div class="sd-container">
+  <div class="data-table-list mat-elevation-z8">
+    <div class="table-container">
+      <table mat-table [dataSource]="dataSource" matSort matSortActive="{{sortBy}}"
+             [matSortDirection]="sortDirection" (matSortChange)="onMatSortChange($event)">
+        <!-- TODO: Figure out later how hanlde sticky column in the loop -->
+        <ng-container *ngFor="let columnInfo of displayedColumnsInfo; trackBy:columnLabel">
+          <ng-container matColumnDef="{{columnInfo.label}}" sticky
+                        *ngIf="columnInfo.label == 'editar' || columnInfo.label == 'visualizar'; else nonStickyBlock">
+            <th mat-header-cell *matHeaderCellDef [ngStyle]="{'min-width.px': columnInfo.headerWidth}">
+              <fdn-table-action
+                [allAllowedColumns]="allAllowedColumns"
+                [displayedColumns]="displayedColumns"
+                [autoFilterFocus]="autoFilterFocus"
+                (addColumn)="onAddColumn($event)"
+                (clearAll)="onClearAll()"
+                (autoFilterFocusEmitter)="onFilterAutoFocusChange($event)"></fdn-table-action>
+            </th>
+            <td mat-cell *matCellDef="let element"
+                [ngStyle]="{'text-align':columnInfo.contentType === 'contentBoolean' ? 'center' : 'left' }">
+              <fdn-data-table-content contentType="{{ columnInfo.contentType }}"
+                                      fontColor="{{ getRowFontColor(element) }}"
+                                      content="{{ element[columnInfo.label] }}">
+              </fdn-data-table-content>
+            </td>
+          </ng-container>
+          <ng-template #nonStickyBlock>
+            <ng-container matColumnDef="{{columnInfo.label}}">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header arrowPosition="before">
+                <fdn-column-action [filterValues]="columnInfo.selectionValues" (filter)="onFilter($event)"
+                                   columnLabel="{{columnInfo.label}}"
+                                   columnKey="{{columnInfo.dbColumn}}" [minWidth]="columnInfo.headerWidth"
+                                   [filterType]="columnInfo.filterType"
+                                   [activeFilters]="activeFilters"
+                                   [clearAll$]="clearAll$"
+                                   (moveColumnEmitter)="onMoveColumn($event)"
+                                   (removeColumnEmitter)="onRemoveColumn($event)"
+                                   [autoFilterFocusInitialValue]="autoFilterFocus"
+                                   [autoFilterFocus$]="autoFilterFocus$"
+                                   [filterData$]="filterData$">
+                </fdn-column-action>
+              </th>
+              <td mat-cell *matCellDef="let element"
+                  [ngStyle]="{'text-align':columnInfo.contentType === 'contentBoolean' ? 'center' : 'left' }">
+                <fdn-data-table-content contentType="{{ columnInfo.contentType }}"
+                                        fontColor="{{ getRowFontColor(element) }}"
+                                        content="{{ element[columnInfo.label] }}">
+                </fdn-data-table-content>
+              </td>
+            </ng-container>
+          </ng-template>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsId; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumnsId;"></tr>
+      </table>
+      <div *ngIf="noData" class="no-records">
+        {{ dataTableTranslatedTexts?.noRecordsFoundTranslatedText ? dataTableTranslatedTexts.noRecordsFoundTranslatedText
+        : 'No records found'}}
+      </div>
+    </div>
+    <mat-paginator *ngIf="paginationData" [length]="paginationData.totalElements"
+                   (page)="onPaginationChange($event)" [pageSize]="paginationData.pageSize"
+                   [pageSizeOptions]="[30, 50, 100]"
+                   [pageIndex]="paginationData.currentPage">
+    </mat-paginator>
+  </div>
+</div>
+<summary class="loading-progress" *ngIf="isForOpenProgressBar">
+  <div>
+    <span>{{ dataTableTranslatedTexts?.waitingServerResponseTranslatedText ?
+      dataTableTranslatedTexts.waitingServerResponseTranslatedText : 'Waiting server response...' }}</span>
+<!--    <stc-progress-bar [isAnimated]="isForOpenProgressBar"></stc-progress-bar>-->
+  </div>
+</summary>
+

@@ -9,7 +9,7 @@ import { ColumnBaseInfo } from '../data-table-models';
 })
 export class TableActionComponent implements OnChanges {
   @Input() displayedColumns!: ColumnBaseInfo[];
-  @Input() allProfileColumns!: ColumnBaseInfo[];
+  @Input() allAllowedColumns!: ColumnBaseInfo[];
   @Input() autoFilterFocus!: boolean;
   @Output() clearAll: EventEmitter<boolean> = new EventEmitter();
   @Output() addColumn: EventEmitter<string> = new EventEmitter();
@@ -56,6 +56,6 @@ export class TableActionComponent implements OnChanges {
   }
 
   private updateColumnItems(): void {
-    this.columnsToAdd = this.allProfileColumns.filter(item => this.displayedColumns.indexOf(item) < 0);
+    this.columnsToAdd = this.allAllowedColumns.filter(item => this.displayedColumns.indexOf(item) < 0);
   }
 }

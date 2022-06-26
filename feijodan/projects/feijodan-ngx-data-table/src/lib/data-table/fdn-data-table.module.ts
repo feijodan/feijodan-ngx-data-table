@@ -31,6 +31,9 @@ import { MatDividerModule } from '@angular/material/divider';
 import { ColumnActionTypeFreeTextComponent } from './column-action/column-action-type/column-action-type-free-text/column-action-type-free-text.component';
 import { ColumnActionTypeListComponent } from './column-action/column-action-type/column-action-type-list/column-action-type-list.component';
 import { ColumnActionTypeNumericComponent } from './column-action/column-action-type/column-action-type-numeric/column-action-type-numeric.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 
 const pipes = [
   EmptyDatePipe,
@@ -68,7 +71,10 @@ const pipes = [
     FormsModule,
     MatFormFieldModule,
     MatDatepickerModule,
-    MatDividerModule
+    MatDividerModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatSortModule,
   ],
   exports: [
     DataTableComponent
