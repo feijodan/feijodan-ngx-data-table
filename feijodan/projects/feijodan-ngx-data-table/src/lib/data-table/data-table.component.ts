@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { Subject } from 'rxjs';
 import {
   ColumnBaseInfo,
@@ -40,7 +40,7 @@ export interface DataTableTranslatedTexts {
   templateUrl: './data-table.component.html',
   styleUrls: ['./data-table.component.scss']
 })
-export class DataTableComponent {
+export class DataTableComponent implements OnChanges {
   /**
    * Currency code
    * e.g. 'BRL', 'CAD', 'USD'
@@ -103,14 +103,12 @@ export class DataTableComponent {
   filterData$ = new Subject<IData[]>();
   displayedColumnsId: string[] = [];
 
-  ngOnInit() {
-    this.autoFilterFocus$.next(this.autoFilterFocus);
-    this.displayedColumnsId = this.displayedColumns.map((column: ColumnBaseInfo)=> column.id);
-  }
-
   ngOnChanges(changes: SimpleChanges) {
     if (changes.autoFilterFocus) {
       this.autoFilterFocus$.next(changes.autoFilterFocus.currentValue);
+    }
+    if (changes.displayedColumns) {
+      this.displayedColumnsId = this.displayedColumns.map((column: ColumnBaseInfo)=> column.id);
     }
   }
 
